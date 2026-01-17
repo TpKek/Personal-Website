@@ -67,7 +67,7 @@ This single-page portfolio website features a clean, professional design with an
 
 - LinkedIn: [linkedin.com/in/bertindreyer](https://linkedin.com/in/bertindreyer/)
 - GitHub: [github.com/TpKek](https://github.com/TpKek)
-- Email: Bertin.Dreyer1@gmail.com
+- Email: *Find inside website*
 
 ## Location
 
