@@ -1,104 +1,104 @@
-# Personal Portfolio Website
+# Bertin Dreyer - Fintech Fullstack Developer Portfolio
 
-A modern, dark-themed personal portfolio website showcasing education, projects, and professional information for a MERN stack developer.
+A professional portfolio website designed to position me as a competitive candidate for fintech fullstack developer roles.
 
 ## Overview
 
-This single-page portfolio website features a clean, professional design with animated gradient elements and a dark color scheme. Built with Bootstrap 5 and custom CSS, it provides an engaging user experience while maintaining responsiveness across all devices.
+This portfolio showcases my technical skills, projects, and approach to building secure, scalable financial technology applications. The design emphasizes trust, professionalism, and technical depth appropriate for the fintech industry.
 
 ## Features
 
-- **Animated Gradient Text**: Eye-catching gradient animations on headings and links
-- **Responsive Design**: Mobile-first approach using Bootstrap 5 grid system
-- **Project Showcase**: Interactive project cards with hover effects
-- **Professional Sections**: 
-  - Hero section with profile photo
-  - Education and resume details
-  - Project portfolio with GitHub links
-  - About me with skills, interests, and social links
-  - Location information with imagery
+### Design
+
+- **Professional Fintech Aesthetic**: Clean, trustworthy, data-driven look with blues and grays
+- **Responsive Design**: Fully responsive across all device sizes
+- **Accessibility Compliant**: WCAG-compliant with proper ARIA labels and keyboard navigation
+- **Premium Animations**: Subtle, sophisticated animations that enhance without distracting
+
+### Sections
+
+- **Hero**: Strong professional headline positioning in fintech space
+- **About**: Professional profile with quick facts and current learning focus
+- **Skills Matrix**: Technologies organized by category (Frontend, Backend, Database, DevOps, Fintech-specific)
+- **Projects**: Featured fintech-relevant projects with technical details
+- **Approach**: Development methodology emphasizing security, scalability, and user experience
+- **Education**: Academic background and certifications
+- **Contact**: Professional CTA with multiple contact methods
 
 ## Tech Stack
 
-- **HTML5**: Semantic markup structure
-- **CSS3**: Custom styling with animations and transitions
-- **Bootstrap 5**: Responsive grid system and utilities
-- **JavaScript**: (via Bootstrap bundle)
-
-## Key Design Elements
-
-### Color Palette
-- Background: `#1a1a1a` (Dark charcoal)
-- Text: `#e0e0e0` (Light gray)
-- Accent: `#ff4444` (Red)
-- Secondary: `#a0a0a0` (Gray)
-
-### Interactive Features
-- Gradient animations on text elements
-- Hover effects on project cards with lift and shadow
-- Smooth transitions on links and buttons
-- Responsive image scaling
-
-## Structure
-
-```
-├── index.html          # Main HTML file
-├── style.css           # Custom styling
-├── images/
-│   ├── Me.png         # Profile photo
-│   ├── TinDog.PNG     # Project screenshot
-│   ├── MoveIt.png     # Project screenshot
-│   └── Stellies.jpeg  # Location image
-```
-
-## Sections
-
-1. **Hero**: Introduction with profile photo and tech stack overview
-2. **Resume**: Education history and achievements
-3. **Projects**: Portfolio of completed projects with links to GitHub
-4. **About Me**: Career goals, skills, interests, and contact information
+- **HTML5**: Semantic markup with accessibility features
+- **CSS3**: Custom properties, Grid, Flexbox, animations
+- **JavaScript**: Intersection Observer, smooth scrolling, mobile navigation
 
 ## Projects Featured
 
-- **TinDog**: HTML/CSS landing page exercise
-- **Move It**: Bootstrap 5 responsive website for a moving company
+1. **Secrets Access Project** - Authentication and security middleware
+2. **Reddit Sentiment Bot** - NLP and data analysis
+3. **QR Code Generator** - CLI utility tool
+4. **Simon Game** - Interactive UI with state management
+5. **Band Name Generator** - Fullstack web application
 
-## Contact & Social Links
-
-- LinkedIn: [linkedin.com/in/bertindreyer](https://linkedin.com/in/bertindreyer/)
-- GitHub: [github.com/TpKek](https://github.com/TpKek)
-- Email: *Find inside website*
-
-## Location
-
-Based in Stellenbosch, South Africa | Willing to relocate
-
-## Getting Started
+## Local Development
 
 1. Clone the repository
-2. Ensure all images are in the `images/` folder
-3. Open `index.html` in a web browser
-4. No build process required - static HTML/CSS
+2. Open `index.html` in a browser
+3. No build process required - pure HTML, CSS, and JavaScript
 
-## Browser Compatibility
+## Deployment
 
-Compatible with all modern browsers:
-- Chrome/Edge (latest)
+This site is designed for GitHub Pages deployment:
+
+1. Push to main branch
+2. Enable GitHub Pages in repository settings
+3. Select main branch as source
+
+## Customization
+
+### Colors
+
+Edit CSS custom properties in `styles.css`:
+
+```css
+:root {
+  --color-primary-500: #2563eb;
+  --color-accent-500: #06b6d4;
+  /* ... */
+}
+```
+
+### Content
+
+Update personal information in `index.html`:
+
+- Contact details
+- Project links
+- Skills and technologies
+
+## Performance
+
+- No external dependencies (except Google Fonts)
+- Optimized CSS with custom properties
+- Lazy loading ready for images
+- Reduced motion support for accessibility
+
+## Browser Support
+
+- Chrome (latest)
 - Firefox (latest)
 - Safari (latest)
-
-## Future Enhancements
-
-- Add more projects to portfolio
-- Implement contact form functionality
-- Add JavaScript interactivity
-- Include testimonials section
-- Add blog or article section
+- Edge (latest)
 
 ## License
 
-Personal portfolio project - all rights reserved
+MIT License - feel free to use this template for your own portfolio.
 
-## Author
+## Contact
 
-Bertin Dreyer - MERN Stack Developer
+- **Email**: Bertin.Dreyer1@gmail.com
+- **LinkedIn**: [linkedin.com/in/bertindreyer](https://linkedin.com/in/bertindreyer)
+- **GitHub**: [github.com/TpKek](https://github.com/TpKek)
+
+---
+
+Built with focus on fintech excellence.
