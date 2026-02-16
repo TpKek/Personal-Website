@@ -5,22 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Bertin Dreyer - Fullstack Developer specializing in Fintech solutions. BSc Computing (UNISA). Building secure, scalable financial technology applications."
+      content="Bertin Dreyer - Fullstack Developer for Fintech. BSc Computing (UNISA). Building financial technology with authentication systems, API integration, and secure coding practices."
     />
-    <meta name="keywords" content="Fullstack Developer, Fintech, React, Node.js, PostgreSQL, MongoDB, Web Development" />
+    <meta name="keywords" content="Fullstack Developer, Fintech, Node.js, Express, Authentication, API Integration, Web Development, Financial Technology" />
     <meta name="author" content="Bertin Dreyer" />
 
     <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="Bertin Dreyer | Fintech Fullstack Developer" />
-    <meta property="og:description" content="BSc Computing (UNISA). Building secure, scalable financial technology applications." />
+    <meta property="og:title" content="Bertin Dreyer | Fullstack Developer for Fintech" />
+    <meta property="og:description" content="BSc Computing (UNISA). Building financial technology with authentication systems, API integration, and secure coding practices." />
     <meta property="og:type" content="website" />
 
-    <title>Bertin Dreyer | Fintech Fullstack Developer</title>
+    <title>Bertin Dreyer | Fullstack Developer for Fintech</title>
 
-    <!-- Fonts - Using distinctive pairing -->
+    <!-- Fonts - Space Grotesk + Inter + JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
 
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css" />
@@ -64,11 +64,11 @@
           <span>Open to Fintech Opportunities</span>
         </div>
         <h1 class="hero-title">
-          <span class="title-line">Building the Future</span>
-          <span class="title-line accent">of Financial Tech</span>
+          <span class="title-line">Fullstack Developer</span>
+          <span class="title-line accent">for Fintech</span>
         </h1>
         <p class="hero-subtitle">
-          Fullstack developer with a <strong>BSc in Computing (UNISA)</strong> and hands-on experience building security-focused applications. I turn complex financial requirements into elegant, production-ready solutions.
+          Building financial technology with security baked in from day one. With a <strong>BSc in Computing</strong> and hands-on experience in <strong>authentication systems</strong> and <strong>API integration</strong>, I help fintech teams ship secure, production-ready applications.
         </p>
         <div class="hero-cta">
           <a href="#projects" class="btn btn-primary">
@@ -88,13 +88,13 @@
           </div>
           <div class="stat-divider"></div>
           <div class="stat">
-            <span class="stat-value">10+</span>
+            <span class="stat-value">4</span>
             <span class="stat-label">Projects</span>
           </div>
           <div class="stat-divider"></div>
           <div class="stat">
-            <span class="stat-value">PERN</span>
-            <span class="stat-label">Stack</span>
+            <span class="stat-value">Auth</span>
+            <span class="stat-label">& APIs</span>
           </div>
         </div>
       </div>
@@ -106,23 +106,18 @@
             <span class="code-dot green"></span>
             <span class="code-title">fintech-auth.js</span>
           </div>
-          <pre class="code-content"><code><span class="keyword">class</span> <span class="variable">FintechDev</span> {
-  <span class="keyword">constructor</span>() {
-    <span class="this">this</span>.education = <span class="string">'BSc Computing (UNISA)'</span>;
-    <span class="this">this</span>.focus = <span class="string">'Security & Payments'</span>;
-    <span class="this">this</span>.ready = <span class="keyword">true</span>;
+          <pre class="code-content"><code><span class="comment">// Authentication middleware pattern</span>
+<span class="keyword">const</span> <span class="function">requireAuth</span> = (<span class="variable">req</span>, <span class="variable">res</span>, <span class="variable">next</span>) => {
+  <span class="keyword">if</span> (<span class="variable">req</span>.<span class="variable">session</span>.<span class="variable">authenticated</span>) {
+    <span class="keyword">return</span> <span class="function">next</span>();
   }
+  <span class="variable">res</span>.<span class="function">redirect</span>(<span class="string">"/login"</span>);
+};
 
-  <span class="function">build</span>(feature) {
-    <span class="keyword">return</span> <span class="keyword">new</span> <span class="type">SecureApp</span>({
-      auth: <span class="string">'JWT + bcrypt'</span>,
-      data: <span class="string">'encrypted'</span>,
-      api: <span class="string">'RESTful'</span>
-    });
-  }
-}
-
-<span class="keyword">const</span> <span class="variable">developer</span> = <span class="keyword">new</span> <span class="variable">FintechDev</span>();</code></pre>
+<span class="comment">// Route protection for sensitive data</span>
+<span class="variable">app</span>.<span class="function">get</span>(<span class="string">"/secrets"</span>, <span class="variable">requireAuth</span>, (<span class="variable">req</span>, <span class="variable">res</span>) => {
+  <span class="variable">res</span>.<span class="function">render</span>(<span class="string">"secrets"</span>);
+});</code></pre>
         </div>
       </div>
     </header>
@@ -141,19 +136,20 @@
                 I'm a <strong>fullstack developer</strong> based in Stellenbosch, South Africa, with a BSc in Computing from UNISA. My academic background gave me a solid foundation in algorithms, data structures, and database design—skills that set me apart in the fintech space.
               </p>
               <p>
-                Currently completing Angela Yu's comprehensive bootcamp, I'm building real-world projects that demonstrate production-ready thinking. I specialize in applications where security isn't optional—it's the foundation.
+                Currently expanding my fullstack capabilities through Angela Yu's comprehensive bootcamp, I'm building real-world projects that demonstrate production-ready thinking. I'm focused on fintech applications where secure, reliable code isn't optional—it's the foundation.
               </p>
             </div>
             <div class="about-highlights">
               <div class="highlight-card">
                 <div class="highlight-icon">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    <line x1="12" y1="1" x2="12" y2="23" />
+                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 0 0 7H6" />
                   </svg>
                 </div>
-                <h3>Security First</h3>
+                <h3>Fintech Focus</h3>
                 <p>
-                  Every application I build has authentication, authorization, and data protection baked in from day one.
+                  Building applications for financial technology with an understanding of what's at stake—user trust and data security.
                 </p>
               </div>
               <div class="highlight-card">
@@ -164,23 +160,57 @@
                     <line x1="12" y1="22.08" x2="12" y2="12" />
                   </svg>
                 </div>
-                <h3>Scalable Architecture</h3>
+                <h3>Fullstack Architecture</h3>
                 <p>
-                  Database design optimized for growth. I think in terms of transactions, not just tables.
+                  From database design to frontend interfaces, I build complete solutions with scalability in mind.
                 </p>
               </div>
               <div class="highlight-card">
                 <div class="highlight-icon">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="12" y1="1" x2="12" y2="23" />
-                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 0 0 7H6" />
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                   </svg>
                 </div>
-                <h3>Fintech Focus</h3>
+                <h3>Secure by Default</h3>
                 <p>
-                  Payment APIs, secure data handling, and compliance-aware design patterns for financial applications.
+                  Authentication, authorization, and data protection built into every project from day one—not added as an afterthought.
                 </p>
               </div>
+            </div>
+            <!-- Security Philosophy -->
+            <div class="security-philosophy">
+              <h3>Building for Fintech</h3>
+              <p>Financial technology demands more than just working code—it requires secure, reliable systems. My approach:</p>
+              <ul class="security-principles">
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
+                  </svg>
+                  <span>Authentication systems that protect user data and financial information</span>
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
+                  </svg>
+                  <span>API integration with proper error handling for financial data services</span>
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
+                  </svg>
+                  <span>Cryptographically secure methods (Web Crypto API, not Math.random)</span>
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
+                  </svg>
+                  <span>Awareness of OWASP guidelines and secure coding practices</span>
+                </li>
+              </ul>
             </div>
           </div>
           <aside class="about-sidebar">
@@ -214,11 +244,11 @@
                 </li>
                 <li>
                   <span class="building-icon">→</span>
-                  <span>Payment integration features</span>
+                  <span>API integration features</span>
                 </li>
                 <li>
                   <span class="building-icon">→</span>
-                  <span>Data visualization dashboards</span>
+                  <span>Data-driven applications</span>
                 </li>
               </ul>
             </div>
@@ -250,11 +280,10 @@
               <h3>Frontend</h3>
             </div>
             <ul class="skill-list">
-              <li><span class="skill-name">React.js</span></li>
               <li><span class="skill-name">JavaScript (ES6+)</span></li>
               <li><span class="skill-name">HTML5 / CSS3</span></li>
-              <li><span class="skill-name">Tailwind CSS</span></li>
               <li><span class="skill-name">EJS Templating</span></li>
+              <li><span class="skill-name">Responsive Design</span></li>
             </ul>
           </div>
 
@@ -275,28 +304,26 @@
               <li><span class="skill-name">Node.js</span></li>
               <li><span class="skill-name">Express.js</span></li>
               <li><span class="skill-name">REST API Design</span></li>
-              <li><span class="skill-name">Authentication (JWT)</span></li>
-              <li><span class="skill-name">Python</span></li>
+              <li><span class="skill-name">API Integration</span></li>
             </ul>
           </div>
 
-          <!-- Database -->
-          <div class="skill-category">
+          <!-- Security & Authentication -->
+          <div class="skill-category featured">
             <div class="category-header">
-              <div class="category-icon database">
+              <div class="category-icon security">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <ellipse cx="12" cy="5" rx="9" ry="3" />
-                  <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
-                  <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                 </svg>
               </div>
-              <h3>Database</h3>
+              <h3>Auth & Security</h3>
+              <span class="category-badge">Fintech Ready</span>
             </div>
             <ul class="skill-list">
-              <li><span class="skill-name">PostgreSQL</span></li>
-              <li><span class="skill-name">MongoDB</span></li>
-              <li><span class="skill-name">Database Design</span></li>
-              <li><span class="skill-name">SQL / NoSQL</span></li>
+              <li><span class="skill-name">Authentication Systems</span></li>
+              <li><span class="skill-name">Session Management</span></li>
+              <li><span class="skill-name">Route Protection</span></li>
+              <li><span class="skill-name">Web Crypto API</span></li>
             </ul>
           </div>
 
@@ -316,47 +343,6 @@
               <li><span class="skill-name">VS Code</span></li>
               <li><span class="skill-name">npm / Package Management</span></li>
               <li><span class="skill-name">Vercel Deployment</span></li>
-            </ul>
-          </div>
-
-          <!-- Fintech-Specific -->
-          <div class="skill-category featured">
-            <div class="category-header">
-              <div class="category-icon fintech">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <line x1="12" y1="1" x2="12" y2="23" />
-                  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 0 0 7H6" />
-                </svg>
-              </div>
-              <h3>Fintech Skills</h3>
-              <span class="category-badge">Specialization</span>
-            </div>
-            <ul class="skill-list">
-              <li><span class="skill-name">Payment API Integration</span></li>
-              <li><span class="skill-name">Authentication & Security</span></li>
-              <li><span class="skill-name">Data Visualization</span></li>
-              <li><span class="skill-name">Transaction Processing</span></li>
-              <li><span class="skill-name">Compliance-Aware Design</span></li>
-            </ul>
-          </div>
-
-          <!-- Core Languages -->
-          <div class="skill-category">
-            <div class="category-header">
-              <div class="category-icon languages">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polygon points="12 2 2 7 12 12 22 7 12 2" />
-                  <polyline points="2 17 12 22 22 17" />
-                  <polyline points="2 12 12 17 22 12" />
-                </svg>
-              </div>
-              <h3>Core Languages</h3>
-            </div>
-            <ul class="skill-list">
-              <li><span class="skill-name">JavaScript</span></li>
-              <li><span class="skill-name">Python</span></li>
-              <li><span class="skill-name">C++</span></li>
-              <li><span class="skill-name">SQL</span></li>
             </ul>
           </div>
         </div>
@@ -534,32 +520,42 @@
             </div>
           </article>
 
-          <!-- Reddit Bot -->
+          <!-- Lisper -->
           <article class="project-card">
             <div class="project-card-header">
-              <span class="project-tag">Data Analysis</span>
-              <h3>Reddit Sentiment Bot</h3>
+              <span class="project-tag">API Integration</span>
+              <h3>Lisper</h3>
             </div>
             <p class="project-card-description">
-              NLP-powered Reddit bot for sentiment analysis. Demonstrates data processing capabilities applicable to financial sentiment analysis and market research.
+              Express.js application with EJS templating demonstrating external API integration, async/await error handling, and server-side rendering. Foundation for integrating payment gateways and financial data APIs.
             </p>
             <div class="project-card-features">
-              <span>NLP Processing</span>
               <span>API Integration</span>
-              <span>Python</span>
+              <span>Async Patterns</span>
+              <span>Error Handling</span>
             </div>
             <div class="project-card-footer">
               <div class="tech-mini">
-                <span>Python</span>
-                <span>Reddit API</span>
-                <span>NLP</span>
+                <span>Express.js</span>
+                <span>EJS</span>
+                <span>Node.js</span>
               </div>
-              <a href="https://github.com/TpKek/Reddit-Bot-Project-2-NLPML-Boogaloo" target="_blank" rel="noopener noreferrer" class="card-link">
-                <span>View Code</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </a>
+              <div class="project-card-links">
+                <a href="https://lisper.vercel.app" target="_blank" rel="noopener noreferrer" class="card-link live-demo">
+                  <span>Live Demo</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </a>
+                <a href="https://github.com/TpKek/Lisper" target="_blank" rel="noopener noreferrer" class="card-link">
+                  <span>Code</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                  </svg>
+                </a>
+              </div>
             </div>
           </article>
         </div>
@@ -615,12 +611,18 @@
               </svg>
             </div>
             <div class="education-content">
-              <span class="education-year">In Progress</span>
+              <span class="education-year">75% Complete</span>
               <h3>Full Stack Web Development Bootcamp</h3>
               <p class="education-institution">Angela Yu (Udemy)</p>
               <p class="education-description">
                 Comprehensive bootcamp covering frontend, backend, databases, and deployment. Building production-ready applications with modern technologies.
               </p>
+              <div class="education-progress">
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 75%"></div>
+                </div>
+                <span class="progress-text">75% Complete</span>
+              </div>
               <div class="education-highlights">
                 <span>React</span>
                 <span>Node.js</span>
@@ -735,7 +737,7 @@
           </div>
         </div>
         <div class="footer-bottom">
-          <p>&copy; 2025 Bertin Dreyer. Building fintech solutions with security at the core.</p>
+          <p>&copy; 2025 Bertin Dreyer. Fullstack developer building fintech with security at the core.</p>
         </div>
       </div>
     </footer>
