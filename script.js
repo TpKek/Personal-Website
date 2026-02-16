@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollAnimations();
   initSmoothScroll();
   initActiveNavigation();
+  initSpotlight();
+  initParticles();
 });
 
 /**
@@ -316,6 +318,128 @@ function throttle(func, limit) {
       setTimeout(() => (inThrottle = false), limit);
     }
   };
+}
+
+/**
+ * Magic UI / Aceternity-style Spotlight Effect
+ * Creates a mouse-following spotlight gradient in the hero section
+ */
+function initSpotlight() {
+  const hero = document.querySelector('.hero');
+  const spotlight = document.getElementById('spotlight');
+
+  if (!hero || !spotlight) return;
+
+  let mouseX = 0;
+  let mouseY = 0;
+  let currentX = 0;
+  let currentY = 0;
+  let lastMouseX = 0;
+  let lastMouseY = 0;
+  let isAnimating = false;
+  let idleTimeout = null;
+
+  // Check for reduced motion preference
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) return;
+
+  hero.addEventListener('mouseenter', () => {
+    spotlight.classList.add('active');
+  });
+
+  hero.addEventListener('mouseleave', () => {
+    spotlight.classList.remove('active');
+    isAnimating = false;
+  });
+
+  hero.addEventListener('mousemove', (e) => {
+    const rect = hero.getBoundingClientRect();
+    mouseX = e.clientX - rect.left;
+    mouseY = e.clientY - rect.top;
+
+    // Reset idle timeout on mouse movement
+    clearTimeout(idleTimeout);
+    idleTimeout = setTimeout(() => {
+      isAnimating = false;
+    }, 100); // Pause after 100ms of no movement
+
+    // Start animation if not already running
+    if (!isAnimating) {
+      isAnimating = true;
+      requestAnimationFrame(animate);
+    }
+  });
+
+  // Smooth animation loop - only runs when mouse is moving
+  function animate() {
+    if (!isAnimating) return;
+
+    // Lerp for smooth following
+    currentX += (mouseX - currentX) * 0.1;
+    currentY += (mouseY - currentY) * 0.1;
+
+    // Update the ::before pseudo-element position via CSS custom properties
+    document.documentElement.style.setProperty('--spotlight-x', `${currentX}px`);
+    document.documentElement.style.setProperty('--spotlight-y', `${currentY}px`);
+
+    // Check if mouse has stopped moving and animation has caught up
+    const hasCaughtUp = Math.abs(mouseX - currentX) < 1 && Math.abs(mouseY - currentY) < 1;
+    const mouseStopped = mouseX === lastMouseX && mouseY === lastMouseY;
+
+    if (hasCaughtUp && mouseStopped) {
+      isAnimating = false;
+      return;
+    }
+
+    lastMouseX = mouseX;
+    lastMouseY = mouseY;
+
+    requestAnimationFrame(animate);
+  }
+}
+
+/**
+ * Magic UI / Aceternity-style Particles Effect
+ * Creates floating particles in the hero background
+ */
+function initParticles() {
+  const container = document.getElementById('particles');
+
+  if (!container) return;
+
+  // Reduce particle count for Firefox for better performance
+  const isFirefox = navigator.userAgent.toLowerCase().includes('firefox');
+  const particleCount = isFirefox ? 10 : 20;
+
+  for (let i = 0; i < particleCount; i++) {
+    createParticle(container, i);
+  }
+}
+
+function createParticle(container, index) {
+  const particle = document.createElement('div');
+  particle.className = 'particle';
+
+  // Randomize particle properties
+  const size = Math.random() * 4 + 2;
+  const left = Math.random() * 100;
+  const delay = Math.random() * 8;
+  const duration = Math.random() * 4 + 6;
+
+  particle.style.cssText = `
+    width: ${size}px;
+    height: ${size}px;
+    left: ${left}%;
+    animation-delay: ${delay}s;
+    animation-duration: ${duration}s;
+  `;
+
+  // Alternate colors between green and gold
+  if (index % 3 === 0) {
+    particle.style.background = 'var(--color-gold-primary)';
+  }
+
+  container.appendChild(particle);
 }
 
 // Add CSS for animations via JavaScript

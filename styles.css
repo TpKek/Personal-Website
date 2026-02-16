@@ -92,6 +92,10 @@
   /* Container */
   --container-max: 1200px;
   --container-padding: 1.5rem;
+
+  /* Magic UI / Aceternity-style Effects */
+  --spotlight-size: 600px;
+  --shimmer-duration: 2s;
 }
 
 /* Reset & Base */
@@ -269,7 +273,7 @@ body {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: var(--space-4xl) var(--container-padding);
   padding-top: calc(72px + var(--space-4xl));
   position: relative;
@@ -277,10 +281,89 @@ body {
   gap: var(--space-3xl);
 }
 
+.hero > .hero-content,
+.hero > .hero-visual {
+  margin: 0;
+}
+
 .hero-background {
   position: absolute;
   inset: 0;
   z-index: -1;
+  overflow: hidden;
+}
+
+/* ============================================
+   Magic UI / Aceternity-style Spotlight Effect
+   ============================================ */
+.spotlight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.spotlight.active {
+  opacity: 1;
+}
+
+.spotlight::before {
+  content: '';
+  position: absolute;
+  width: var(--spotlight-size);
+  height: var(--spotlight-size);
+  background: radial-gradient(
+    circle,
+    rgba(0, 200, 150, 0.15) 0%,
+    rgba(0, 200, 150, 0.05) 40%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  left: var(--spotlight-x, 50%);
+  top: var(--spotlight-y, 50%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* ============================================
+   Particles Effect (Magic UI style)
+   ============================================ */
+.particles-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--color-accent-primary);
+  border-radius: 50%;
+  opacity: 0;
+  animation: particle-float 8s ease-in-out infinite;
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  contain: layout style;
+}
+
+@keyframes particle-float {
+  0%, 100% {
+    opacity: 0;
+    transform: translateY(100vh) scale(0);
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100px) scale(1);
+  }
 }
 
 .grid-pattern {
@@ -314,6 +397,9 @@ body {
   border: 1px solid rgba(0, 200, 150, 0.15);
   border-radius: var(--radius-lg);
   animation: float 20s ease-in-out infinite;
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  contain: layout style;
 }
 
 .shape-1 {
@@ -370,6 +456,34 @@ body {
   font-size: 0.875rem;
   color: var(--color-accent-primary);
   margin-bottom: var(--space-xl);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shimmer effect for badge */
+.hero-badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 200, 150, 0.2),
+    transparent
+  );
+  animation: badge-shimmer 3s ease-in-out infinite;
+}
+
+@keyframes badge-shimmer {
+  0%, 100% {
+    left: -100%;
+  }
+  50% {
+    left: 100%;
+  }
 }
 
 .badge-dot {
@@ -407,6 +521,26 @@ body {
 .title-line.accent {
   color: var(--color-accent-primary);
   position: relative;
+  background: linear-gradient(
+    90deg,
+    var(--color-accent-primary) 0%,
+    var(--color-gold-primary) 50%,
+    var(--color-accent-primary) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: text-shimmer 3s linear infinite;
+}
+
+@keyframes text-shimmer {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
 }
 
 .hero-subtitle {
@@ -445,6 +579,29 @@ body {
 .btn-primary {
   background: var(--color-accent-primary);
   color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shine effect on button (Aceternity style) */
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
 }
 
 .btn-primary:hover {
@@ -521,6 +678,28 @@ body {
   overflow: hidden;
   box-shadow: var(--shadow-xl);
   width: 420px;
+  position: relative;
+}
+
+/* Glow effect for code window */
+.code-window::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: var(--radius-xl);
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 200, 150, 0.3) 0%,
+    transparent 50%,
+    rgba(212, 168, 83, 0.2) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
 }
 
 .code-header {
@@ -813,6 +992,38 @@ body {
   border-radius: var(--radius-lg);
   padding: var(--space-xl);
   transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shimmer effect for skill cards */
+.skill-category::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    transparent 40%,
+    rgba(0, 200, 150, 0.2) 50%,
+    transparent 60%,
+    transparent 100%
+  );
+  background-size: 200% 200%;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  animation: shimmer-border 3s linear infinite;
+}
+
+.skill-category:hover::before {
+  opacity: 1;
 }
 
 .skill-category:hover {
@@ -1098,6 +1309,47 @@ body {
   display: flex;
   flex-direction: column;
   transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shimmer border effect (Aceternity style) */
+.project-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    transparent 40%,
+    rgba(0, 200, 150, 0.3) 50%,
+    transparent 60%,
+    transparent 100%
+  );
+  background-size: 200% 200%;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  animation: shimmer-border 3s linear infinite;
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+@keyframes shimmer-border {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 .project-card:hover {
@@ -1727,5 +1979,79 @@ button:focus-visible {
 
   .project-featured {
     padding: var(--space-xl);
+  }
+}
+
+/* ============================================
+   Accessibility: Reduced Motion
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .particle,
+  .shape,
+  .spotlight::before,
+  .hero-badge::before,
+  .btn-primary::before,
+  .title-line.accent,
+  .project-card::before,
+  .skill-category::before {
+    animation: none !important;
+  }
+
+  .spotlight {
+    display: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ============================================
+   Firefox Performance Optimizations
+   ============================================ */
+@-moz-document url-prefix() {
+  /* Reduce particle count visually for Firefox
+  .particle:nth-child(even) {
+    display: none;
+  } */
+
+  /* Simplify floating shapes animation */
+  .floating-shapes .shape {
+    animation: none;
+    opacity: 0.2;
+  }
+
+  /* Reduce backdrop blur complexity */
+  .nav {
+    backdrop-filter: blur(8px);
+  }
+
+  /* Simplify grid pattern for Firefox */
+  .grid-pattern {
+    mask-image: none;
+    opacity: 0.5;
+  }
+
+  /* Reduce shimmer animation complexity */
+  .hero-badge::before,
+  .btn-primary::before {
+    animation: none;
+  }
+
+  /* Optimize spotlight for Firefox */
+  .spotlight::before {
+    background: radial-gradient(
+      circle,
+      rgba(0, 200, 150, 0.1) 0%,
+      transparent 60%
+    );
   }
 }
