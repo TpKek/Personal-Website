@@ -5,6 +5,9 @@
 
 /* CSS Custom Properties */
 :root {
+  /* Tell browsers and extensions this is a dark-themed site */
+  color-scheme: dark;
+
   /* Primary Colors - Deep Slate Navy */
   --color-primary-900: #0a0f1a;
   --color-primary-800: #0f1729;
