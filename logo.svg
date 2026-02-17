@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" width="1000" height="400">
+  <defs>
+    <!-- Embed Space Grotesk font -->
+    <style>
+      @font-face {
+        font-family: 'Space Grotesk';
+        font-style: normal;
+        font-weight: 500;
+        src: url('https://fonts.gstatic.com/s/spacegrotesk/v16/V8mDoQDjQSkFtoMM3T6r8E7mPbF4Cw.woff2') format('woff2');
+      }
+
+      .signature {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 100px;
+        font-weight: 500;
+        fill: #00c896;
+      }
+    </style>
+  </defs>
+
+  <!-- Signature text with right-leaning italic slant matching PNG -->
+  <text x="500" y="200" text-anchor="middle" class="signature" transform="skewX(-11)">Bertin Dreyer</text>
+
+  <!-- Gold underline -->
+  <line x1="150" y1="240" x2="850" y2="240" stroke="#d4a853" stroke-width="5" stroke-linecap="round"/>
+</svg>

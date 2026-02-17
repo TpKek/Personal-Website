@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initActiveNavigation();
   initSpotlight();
   initParticles();
+  initTerminalTime();
 });
 
 /**
@@ -485,3 +486,25 @@ styleSheet.textContent = `
   }
 `;
 document.head.appendChild(styleSheet);
+
+/**
+ * Terminal Time Update
+ * Updates the banking terminal clock in real-time
+ */
+function initTerminalTime() {
+  const timeElement = document.getElementById('terminal-time');
+
+  if (!timeElement) return;
+
+  function updateTime() {
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    timeElement.textContent = `${hours}:${minutes}:${seconds}`;
+  }
+
+  // Update immediately and then every second
+  updateTime();
+  setInterval(updateTime, 1000);
+}
