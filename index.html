@@ -39,6 +39,9 @@
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css" />
 
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="logo.png" />
   </head>
@@ -53,6 +56,7 @@
           <li><a href="#about">About</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#projects">Projects</a></li>
+          <!-- <li><a href="#linkedin">LinkedIn</a></li> -->
           <li><a href="#contact" class="nav-cta">Get In Touch</a></li>
         </ul>
         <button
@@ -238,11 +242,17 @@
                       fill="none"
                       stroke="currentColor"
                       stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
                     >
-                      <line x1="12" y1="1" x2="12" y2="23" />
-                      <path
-                        d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 0 0 7H6"
-                      />
+                      <path d="M3 21h18"/>
+                      <path d="M3 10h18"/>
+                      <path d="M5 6l7-3 7 3"/>
+                      <path d="M4 10v11"/>
+                      <path d="M20 10v11"/>
+                      <path d="M8 14v3"/>
+                      <path d="M12 14v3"/>
+                      <path d="M16 14v3"/>
                     </svg>
                   </div>
                   <h3>Fintech Focus</h3>
@@ -431,6 +441,32 @@
             </p>
           </div>
           <div class="skills-grid">
+            <!-- Security & Authentication - Full Width Featured Card -->
+            <div class="skill-category featured">
+              <div class="category-header">
+                <div class="category-icon security">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  </svg>
+                </div>
+                <h3>Auth & Security</h3>
+                <span class="category-badge">Fintech Ready</span>
+              </div>
+              <ul class="skill-list">
+                <li><span class="skill-name">Authentication Systems</span></li>
+                <li><span class="skill-name">Session Management</span></li>
+                <li><span class="skill-name">Route Protection</span></li>
+                <li><span class="skill-name">Web Crypto API</span></li>
+              </ul>
+            </div>
+
             <!-- Frontend -->
             <div class="skill-category">
               <div class="category-header">
@@ -482,32 +518,6 @@
                 <li><span class="skill-name">Express.js</span></li>
                 <li><span class="skill-name">REST API Design</span></li>
                 <li><span class="skill-name">API Integration</span></li>
-              </ul>
-            </div>
-
-            <!-- Security & Authentication -->
-            <div class="skill-category featured">
-              <div class="category-header">
-                <div class="category-icon security">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                  </svg>
-                </div>
-                <h3>Auth & Security</h3>
-                <span class="category-badge">Fintech Ready</span>
-              </div>
-              <ul class="skill-list">
-                <li><span class="skill-name">Authentication Systems</span></li>
-                <li><span class="skill-name">Session Management</span></li>
-                <li><span class="skill-name">Route Protection</span></li>
-                <li><span class="skill-name">Web Crypto API</span></li>
               </ul>
             </div>
 
@@ -937,6 +947,24 @@
         </div>
       </section>
 
+      <!-- LinkedIn Section - Uncomment when ready to use
+      <section class="section linkedin" id="linkedin">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag">Stay Connected</span>
+            <h2 class="section-title">Latest from LinkedIn</h2>
+            <p class="section-description">
+              Thoughts on fintech development, security trends, and tech updates
+            </p>
+          </div>
+          <div class="linkedin-feed">
+            <script src="https://elfsightcdn.com/platform.js" async></script>
+            <div class="elfsight-app-3f9c345b-1569-4cb6-a8bf-bd982bc86c13" data-elfsight-app-lazy></div>
+          </div>
+        </div>
+      </section>
+      -->
+
       <!-- Education Section -->
       <section class="section education" id="education">
         <div class="container">
@@ -1131,6 +1159,7 @@
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
+            <!-- <a href="#linkedin">LinkedIn</a> -->
             <a href="#contact">Contact</a>
           </div>
           <div class="footer-social">
@@ -1205,3 +1234,4 @@
 </html>
   </body>
 </html>
+

@@ -105,6 +105,64 @@
   --shimmer-duration: 2s;
 }
 
+/* ============================================
+   Custom Scrollbar - Matching Website Theme
+   ============================================ */
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-accent-primary) var(--color-primary-700);
+}
+
+/* WebKit/Chrome/Safari/Edge */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-primary-800);
+  border-radius: 6px;
+  border-left: 1px solid var(--color-primary-600);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    var(--color-accent-400) 0%,
+    var(--color-accent-primary) 50%,
+    var(--color-accent-hover) 100%
+  );
+  border-radius: 6px;
+  border: 2px solid var(--color-primary-800);
+  box-shadow: 0 0 8px var(--color-accent-glow);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    var(--color-accent-300) 0%,
+    var(--color-accent-400) 50%,
+    var(--color-accent-primary) 100%
+  );
+  box-shadow: 0 0 12px var(--color-accent-glow);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: var(--color-accent-hover);
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--color-primary-800);
+}
+
+/* Selection highlight */
+::selection {
+  background: var(--color-accent-primary);
+  color: var(--color-primary-900);
+}
+
 /* Reset & Base */
 *,
 *::before,
@@ -1209,6 +1267,11 @@ body {
   gap: var(--space-lg);
 }
 
+/* Security card spans full width */
+.skill-category.featured {
+  grid-column: 1 / -1;
+}
+
 .skill-category {
   background: var(--color-primary-800);
   border: 1px solid var(--color-border);
@@ -1261,6 +1324,8 @@ body {
     var(--color-accent-glow) 0%,
     var(--color-primary-800) 100%
   );
+  grid-column: 1 / -1;
+  max-width: 100%;
 }
 
 .category-header {
@@ -1815,8 +1880,86 @@ body {
 }
 
 /* ============================================
+   LinkedIn Section
+   ============================================ */
+
+.linkedin-feed {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-2xl) 0;
+  width: 100%;
+}
+
+.linkedin-feed .elfsight-app-3f9c345b-1569-4cb6-a8bf-bd982bc86c13 {
+  width: 100%;
+  max-width: 800px;
+  background: var(--color-primary-800);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+/* Style the LinkedIn feed posts to match the dark theme */
+.linkedin-feed .elfsight-app-3f9c345b-1569-4cb6-a8bf-bd982bc86c13 * {
+  background: var(--color-primary-800) !important;
+  border-color: var(--color-primary-600) !important;
+  color: var(--color-text-primary) !important;
+}
+
+.linkedin-feed .elfsight-app-3f9c345b-1569-4cb6-a8bf-bd982bc86c13 a {
+  color: var(--color-accent-primary) !important;
+}
+
+.linkedin-cta {
+  text-align: center;
+  background: var(--color-primary-800);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-3xl);
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.linkedin-cta i {
+  color: #0a66c2;
+}
+
+.linkedin-cta h3 {
+  font-size: 1.5rem;
+  color: var(--color-text-primary);
+}
+
+.linkedin-cta p {
+  color: var(--color-text-secondary);
+  max-width: 350px;
+}
+
+/* ============================================
    Contact Section
    ============================================ */
+
+/*
+   LinkedIn Section CSS - Uncomment when ready to use:
+
+   .linkedin-feed {
+     display: flex;
+     justify-content: center;
+     padding: var(--space-2xl) 0;
+     width: 100%;
+   }
+
+   .linkedin-feed .elfsight-app-3f9c345b-1569-4cb6-a8bf-bd982bc86c13 {
+     width: 100%;
+     max-width: 800px;
+     background: var(--color-primary-800);
+     border: 1px solid var(--color-border);
+     border-radius: var(--radius-xl);
+     overflow: hidden;
+   }
+*/
 .contact {
   background: var(--color-primary-800);
 }
@@ -2145,6 +2288,10 @@ button:focus-visible {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .skill-category.featured {
+    grid-column: 1 / -1;
+  }
+
   .project-featured {
     grid-template-columns: 1fr;
   }
@@ -2249,6 +2396,10 @@ button:focus-visible {
 
   .skills-grid {
     grid-template-columns: 1fr;
+  }
+
+  .skill-category.featured {
+    grid-column: 1;
   }
 
   .projects-grid {
